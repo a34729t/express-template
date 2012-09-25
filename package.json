@@ -1,0 +1,13 @@
+{
+  "name": "express-template",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "2.5.9",
+    "connect": "1.8.7",
+    "winston": "0.6.2",
+    "mysql": "2.0.0-alpha3",
+    "mocha": "1.4.2",
+    "request": "2.11.1",
+    "gitinfo": "0.0.2"
+  }
+}
