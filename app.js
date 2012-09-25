@@ -13,7 +13,9 @@ var requestId = middleware.requestId;
 // Configure Express
 var app = express.createServer();
 app.configure(function () {
-  app.use(express.logger({stream:Common.loggerStream}));
+  app.use(express.logger({
+    stream: Common.loggerStream
+  }));
   app.use(express.cookieParser());
   app.use(express.bodyParser());
   app.use(requestId); // add requestId to ALL incoming requests
@@ -33,7 +35,6 @@ app.get("/v1/goodbye", helloworld1.goodbye);
 // version 2.0
 var helloworld2 = require('./routes/v2/helloworld');
 app.get("/v2/hello", helloworld2.hello);
-app.get("/v2/goodbye", helloworld2.goodbye);
 
 // Start the server
 app.listen(conf.port);

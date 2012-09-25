@@ -13,18 +13,18 @@ module.exports = function () {
       }
     };
 
-    case 'testing':
-      return {
+  case 'testing':
+    return {
       port: 8080,
-        logPath: './logs/app.log',
-        timeout: 3000,
-        db: {
-          hostname: 'testdb',
-          user: 'user',
-          pass: 'pass',
-          schema: 'schema'
-        }
-      };
+      logPath: './logs/app.log',
+      timeout: 3000,
+      db: {
+        hostname: 'testdb',
+        user: 'user',
+        pass: 'pass',
+        schema: 'schema'
+      }
+    };
 
   default:
     return {
