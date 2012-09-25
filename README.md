@@ -3,7 +3,10 @@ express-template
 
 Here's my express app template with config, logging, db and routes separated into modules. It is fully functional, so you can start it and make requests with your browser and run the test suite against it. I've included a mysql connection for example purposes but it is not used.
 
-# What you get
+Note that this app is is an api that returns json in response to requests- it does not use jade or any sort of html library.
+
+# What you get?
+
 * Can run for different environments (production,development,testing) using options specified in configuration file
 * Test using mocha
 * Logging using winston
@@ -20,7 +23,11 @@ To run, specify the node environment you want to use:
 
 The routes that come with the template can be accessed with the following urls:
 
-TODOTODOTODOTODO
+    http://localhost:8080/v1/info
+    http://localhost:8080/v1/hello
+    http://localhost:8080/v1/goodbye
+    http://localhost:8080/v2/hello
+    http://localhost:8080/v2/hello?name=foo
 
 # Testing
 
@@ -63,9 +70,7 @@ To log express requests with winston, we have to do a little extra work, as expl
 
 # Middleware
 
-TODOTODOTODOTODO
-
-Sample middleware writes request ids- these should really get logged too
+Sample middleware writes request ids to request query parameters. These are not used for anything currently. This middleware is applied; route specific middleware can be also be used.
 
 # MySQL
 
@@ -81,9 +86,37 @@ This app supports multiple API versions from the start. For more info on designi
 
 # Folder Structure
 
-TODOTODOTODOTODO
+    app.js             # entry point, defines express http server and basic routing
+    common.js          # common namespace, allows modules to access logger, config, db conn and so on
+    config.js          # config file, contains config info for production and development environments
+    database.js        # database connection logic (uses node-mysql)
+    middleware.js      # middleware for express http server
+    package.json       # npm package info
+    README.md          # this file
+
+    helpers/           # helper functions for all routes
+      helloworld.helper.js
+
+    logs/              # this is where logs get generated
+
+    routes/
+      v1/          
+        info.js        # general purpose and info routes
+        helloworld.js  # helloworld routes
+      v2/
+        helloworld.js  # helloworld routes
+
+    test/
+      mocha.opts       # testing config file
+      v1/              # functional tests for v1 api
+        info.test.js
+        helloworld.test.js
+      v2/              # functional tests for v2 api
+        helloworld.test.js
 
 # Future Work
+* Make express to winston logging prettier/better integrated with winston format
+* Make a custom middleware for express logging that includes request ids
 * Add in push notification service (apn module) with my helper functions
 * Passport authentication; I use my own homebrewed solution but for this template OAuth is more helpful
-* Make a custom middleware for express logging that includes request ids
+* Sample route-specific middleware (for authentication, probably)
