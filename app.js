@@ -1,5 +1,6 @@
 // Libraries
 var express = require('express');
+var connect = require('connect');
 
 // Common Namespace
 var Common = require('./common');
