@@ -3,7 +3,7 @@
 // reconnect handlers.
 // See for more details: https://github.com/felixge/node-mysql
 
-module.exports = function (conf) {
+module.exports = function (conf,logger) {
   var mysql = require('mysql');
 
   var connection = mysql.createConnection({

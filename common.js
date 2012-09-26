@@ -3,10 +3,6 @@
 var Config = require('./config');
 var conf = new Config();
 
-// MySQL
-//var connection = require('./database.js')(conf);
-var connection = null;
-
 // Logger
 var winston = require('winston');
 var logger = new(winston.Logger)({
@@ -24,6 +20,10 @@ var logger = new(winston.Logger)({
   })],
   exitOnError: false
 });
+
+// MySQL
+//var connection = require('./database.js')(conf,logger);
+var connection = null;
 
 // Stream to pass to express logger to log http requests
 // See http://stackoverflow.com/questions/9141358/how-do-i-output-connect-expresss-logger-output-to-winston
