@@ -13,9 +13,15 @@ var requestId = middleware.requestId;
 // Configure Express
 var app = express.createServer();
 app.configure(function () {
-  app.use(express.logger({
-    stream: Common.loggerStream
-  }));
+  // For logging, we pass the connect.logger as a stream to winson.  For more 
+  // info on connect.logger options and parameters see: 
+  //   http://extjs.github.com/Connect/logger.html
+  app.use(
+    connect.logger({ 
+      stream: Common.loggerStream, 
+      format: ':method :status :url :response-time'
+    })
+  );
   app.use(express.cookieParser());
   app.use(express.bodyParser());
   app.use(requestId); // add requestId to ALL incoming requests

@@ -115,8 +115,6 @@ This app supports multiple API versions from the start. For more info on designi
         helloworld.test.js
 
 # Future Work
-* Make express to winston logging prettier/better integrated with winston format
-* Make a custom middleware for express logging that includes request ids
 * Add in push notification service (apn module) with my helper functions
 * Passport authentication; I use my own homebrewed solution but for this template OAuth is more helpful
 * Sample route-specific middleware (for authentication, probably)

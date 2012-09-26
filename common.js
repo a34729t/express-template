@@ -29,7 +29,7 @@ var connection = null;
 // See http://stackoverflow.com/questions/9141358/how-do-i-output-connect-expresss-logger-output-to-winston
 var loggerStream = {
   write: function (message, encoding) {
-    logger.info(message.substring(0, message.length - 1));
+    logger.info(message.substring(0,message.length - 1));
   }
 };
 
